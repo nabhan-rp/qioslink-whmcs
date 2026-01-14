@@ -1,6 +1,4 @@
-================================================================================
-PANDUAN INTEGRASI WHMCS - VERSI 2.0 (FIX DUPLICATE)
-================================================================================
+PANDUAN INTEGRASI WHMCS - VERSI 1.0
 
 Panduan ini mencakup instalasi Modul WHMCS dan update Backend API untuk mencegah 
 masalah "Link Menumpuk" (Transaksi ganda setiap kali halaman invoice di-refresh).

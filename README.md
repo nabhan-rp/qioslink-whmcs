@@ -8,23 +8,7 @@ Sistem ini terdiri dari 2 Sisi yang harus diupdate:
 2. SISI WHMCS (Hosting WHMCS)
 
 --------------------------------------------------------------------------------
-BAGIAN 1: UPDATE SERVER QIOSLINK (WAJIB)
---------------------------------------------------------------------------------
-Agar sistem tidak membuat link baru setiap kali WHMCS me-refresh halaman, 
-Anda WAJIB mengupdate logika backend QiosLink.
-
-1. Buka file `backend_create_payment_fix.txt` yang sudah Anda download.
-2. Rename file tersebut menjadi `create_payment.php`.
-3. Upload file ini ke hosting QiosLink Anda, di dalam folder `/api/`.
-   (Timpa/Overwrite file `create_payment.php` yang lama).
-
-PENJELASAN:
-File ini sekarang memiliki fitur "Idempotency Check". Sistem akan mengecek apakah
-Invoice ID dari WHMCS sudah memiliki transaksi Pending. Jika ada, sistem akan
-mengembalikan QR yang sama, bukan membuat baru.
-
---------------------------------------------------------------------------------
-BAGIAN 2: INSTALASI MODUL DI WHMCS
+BAGIAN 1: INSTALASI MODUL DI WHMCS
 --------------------------------------------------------------------------------
 Gunakan file modul yang sudah dibersihkan (`backend_whmcs_module.txt` dan callbacknya).
 
@@ -45,7 +29,7 @@ Struktur File Akhir di WHMCS:
 /public_html/whmcs/modules/gateways/callback/qiosgateway.php
 
 --------------------------------------------------------------------------------
-BAGIAN 3: AKTIVASI & KONFIGURASI
+BAGIAN 2: AKTIVASI & KONFIGURASI
 --------------------------------------------------------------------------------
 1. Login ke Admin Area WHMCS.
 2. Pergi ke: System Settings -> Payment Gateways.
@@ -61,7 +45,7 @@ BAGIAN 3: AKTIVASI & KONFIGURASI
 7. Klik "Save Changes".
 
 --------------------------------------------------------------------------------
-BAGIAN 4: PENGUJIAN (TESTING)
+BAGIAN 3: PENGUJIAN (TESTING)
 --------------------------------------------------------------------------------
 1. Buat Invoice baru di WHMCS (sebagai Admin atau Client).
 2. Pilih metode pembayaran "QRIS".
